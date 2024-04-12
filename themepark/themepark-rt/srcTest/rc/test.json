@@ -1,0 +1,198 @@
+{
+  "namespace": "json",
+  "version": "1.2.3",
+  "frozen": true,
+  "neqlizeExcludedTags": "booleanNever",
+  "neqlizeExcludedRelations": "deviceRef",
+  "tagGroups": [
+    {
+      "name": "group",
+      "validity": {
+        "type": "tagdictionary:And",
+        "conditions": [
+          {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "control:NumericPoint"
+          },
+          {
+            "filter": "json:markerAlways",
+            "type": "tagdictionary:BooleanFilter"
+          }
+        ]
+      },
+      "tags": [
+        {
+          "name": "markerAlways"
+        },
+        {
+          "default": "5",
+          "valueType": "baja:Integer",
+          "name": "integerIsType",
+          "validity": {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "control:ControlPoint"
+          }
+        },
+        {
+          "default": "false",
+          "valueType": "baja:Boolean",
+          "name": "booleanNever",
+          "validity": {
+            "type": "tagdictionary:Never"
+          }
+        },
+        {
+          "default": "test",
+          "valueType": "baja:String",
+          "name": "stringOr",
+          "validity": {
+            "type": "tagdictionary:Or",
+            "conditions": [
+              {
+                "type": "tagdictionary:IsTypeCondition",
+                "objectType": "control:BooleanPoint"
+              },
+              {
+                "type": "tagdictionary:IsTypeCondition",
+                "objectType": "control:EnumPoint"
+              }
+            ]
+          }
+        },
+        {
+          "default": "0@{a=0,b=1,c=2}",
+          "valueType": "baja:DynamicEnum",
+          "name": "enumFilter",
+          "validity": {
+            "filter": "json:markerAlways or json:integerIsType",
+            "type": "tagdictionary:BooleanFilter"
+          }
+        },
+        {
+          "name": "test",
+          "testString": "This is a test",
+          "validity": {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "baja:Component"
+          },
+          "type": "tagdictionaryTest:TestTagInfo"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "name": "deviceRef"
+    },
+    {
+      "name": "equipRef"
+    },
+    {
+      "name": "siteRef"
+    },
+    {
+      "name": "spaceRef"
+    }
+  ],
+  "tags": [
+    {
+      "name": "markerAlways"
+    },
+    {
+      "default": "5",
+      "valueType": "baja:Integer",
+      "name": "integerIsType",
+      "validity": {
+        "type": "tagdictionary:IsTypeCondition",
+        "objectType": "control:ControlPoint"
+      }
+    },
+    {
+      "default": "false",
+      "valueType": "baja:Boolean",
+      "name": "booleanNever",
+      "validity": {
+        "type": "tagdictionary:Never"
+      }
+    },
+    {
+      "default": "test",
+      "valueType": "baja:String",
+      "name": "stringOr",
+      "validity": {
+        "type": "tagdictionary:Or",
+        "conditions": [
+          {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "control:BooleanPoint"
+          },
+          {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "control:EnumPoint"
+          }
+        ]
+      }
+    },
+    {
+      "default": "0@{a=0,b=1,c=2}",
+      "valueType": "baja:DynamicEnum",
+      "name": "enumFilter",
+      "validity": {
+        "filter": "json:markerAlways or json:integerIsType",
+        "type": "tagdictionary:BooleanFilter"
+      }
+    },
+    {
+      "name": "test",
+      "testString": "This is a test",
+      "validity": {
+        "type": "tagdictionary:IsTypeCondition",
+        "objectType": "baja:Component"
+      },
+      "type": "tagdictionaryTest:TestTagInfo"
+    }
+  ],
+  "rules": [
+    {
+      "condition": {
+        "type": "tagdictionary:Or",
+        "conditions": [
+          {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "driver:Device"
+          },
+          {
+            "filter": "h4:computer or h4:controller or h4:networkingDevice or h4:phone or h4:tablet",
+            "type": "tagdictionary:BooleanFilter"
+          }
+        ]
+      },
+      "name": "device",
+      "tags": [{"name": "device"}]
+    },
+    {
+      "condition": {"type": "tagdictionary:Always"},
+      "name": "equipRef",
+      "relations": [{
+        "name": "equipRef",
+        "type": "tagdictionary:ParentDeviceRelation"
+      }]
+    },
+    {
+      "condition": {
+        "type": "tagdictionary:IsTypeCondition",
+        "objectType": "baja:Component"
+      },
+      "name": "test",
+      "tags": [{
+        "name": "test",
+        "testString": "This is a test",
+        "validity": {
+          "type": "tagdictionary:IsTypeCondition",
+          "objectType": "baja:Component"
+        },
+        "type": "tagdictionaryTest:TestTagInfo"
+      }]
+    }
+  ]
+}

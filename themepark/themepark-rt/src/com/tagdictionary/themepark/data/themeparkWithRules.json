@@ -1,0 +1,156 @@
+{
+  "namespace": "thmpk",
+  "version": "1.0",
+  "frozen": true,
+  "neqlizeExcludedTags": "",
+  "neqlizeExcludedRelations": "",
+  "tags": [
+    {
+      "name": "zone"
+    },
+    {
+      "name": "restaurant"
+    },
+    {
+      "name": "ride"
+    },
+    {
+      "name": "seat"
+    },
+    {
+      "name": "shop"
+    },
+    {
+      "name": "show"
+    },
+    {
+      "name": "id",
+      "valueType": "baja:String",
+      "default": ""
+    }
+  ],
+  "tagGroups": [
+  ],
+  "relations": [
+    {
+      "name": "hasZone"
+    },
+    {
+      "name": "hasVenue"
+    },
+    {
+      "name": "hasSeat"
+    }
+  ],
+  "rules": [
+    {
+      "name": "zone",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "",
+        "endsWith": "Zone"
+      },
+      "tags": [
+        {
+          "name": "zone"
+        }
+      ]
+    },
+    {
+      "name": "restaurant",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "",
+        "endsWith": "Restaurant"
+      },
+      "tags": [
+        {
+          "name": "restaurant"
+        }
+      ]
+    },
+    {
+      "name": "ride",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "",
+        "endsWith": "Ride"
+      },
+      "tags": [
+        {
+          "name": "ride"
+        }
+      ]
+    },
+    {
+      "name": "seat",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "Seat",
+        "endsWith": ""
+      },
+      "tags": [
+        {
+          "name": "seat"
+        }
+      ]
+    },
+    {
+      "name": "shop",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "",
+        "endsWith": "Shop"
+      },
+      "tags": [
+        {
+          "name": "shop"
+        }
+      ]
+    },
+    {
+      "name": "show",
+      "condition": {
+        "type": "themepark:IsNamedWith",
+        "startsWith": "",
+        "endsWith": "Show"
+      },
+      "tags": [
+        {
+          "name": "show"
+        }
+      ]
+    },
+    {
+      "name": "hasSeat",
+      "condition": {
+        "type": "tagdictionary:Always"
+      },
+      "relations": [
+        {
+          "name": "hasSeat",
+          "type": "themepark:VenueSeatRelation"
+        }
+      ]
+    },
+    {
+      "name": "id",
+      "condition": {
+        "type": "tagdictionary:IsTypeCondition",
+        "objectType": "control:ControlPoint"
+      },
+      "tags": [
+        {
+          "name": "id",
+          "type": "themepark:IdTag",
+          "validity": {
+            "type": "tagdictionary:IsTypeCondition",
+            "objectType": "control:ControlPoint"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+

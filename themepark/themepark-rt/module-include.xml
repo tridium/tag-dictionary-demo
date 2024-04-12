@@ -1,0 +1,6 @@
+<types>
+  <!--com.tagdictionary.themepark-->
+  <type class="com.tagdictionary.themepark.BIsNamedWith" name="IsNamedWith"/>
+  <type class="com.tagdictionary.themepark.BIdTag" name="IdTag"/>
+  <type class="com.tagdictionary.themepark.BVenueSeatRelation" name="VenueSeatRelation"/>
+</types>

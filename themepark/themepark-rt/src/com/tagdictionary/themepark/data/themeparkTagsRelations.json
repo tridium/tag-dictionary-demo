@@ -1,0 +1,52 @@
+{
+  "namespace": "thmpk",
+  "version": "1.0",
+  "frozen": true,
+  "neqlizeExcludedTags": "",
+  "neqlizeExcludedRelations": "",
+  "tags": [
+    {
+      "name": "zone"
+    },
+    {
+      "name": "restaurant"
+    },
+    {
+      "name": "ride"
+    },
+    {
+      "name": "shop"
+    },
+    {
+      "name": "show"
+    },
+    {
+      "name": "seat"
+    },
+    {
+      "name": "id",
+      "valueType": "baja:String",
+      "default": ""
+    }
+  ],
+  "tagGroups": [
+  ],
+  "relations": [
+    {
+      "name": "hasZone"
+    },
+    {
+      "name": "hasVenue"
+    },
+    {
+      "name": "hasSeat"
+    }
+  ],
+  "rules": [
+  ]
+}
+
+
+
+
+
